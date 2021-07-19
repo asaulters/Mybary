@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 //new book route
 router.get("/new", async (req, res) => {
   try {
-    const author = await Author.find({});
+    const authors = await Author.find({});
     const book = new Book();
     res.render("/books/new", {
       authors: authors,
@@ -19,6 +19,7 @@ router.get("/new", async (req, res) => {
     });
   } catch {
     res.redirect("/books");
+    console.log("there has been a problem")
   }
 });
 
